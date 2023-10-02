@@ -1,6 +1,6 @@
-export enum BatchInserErrorReportType {
-    ALREADY_INSERTED = 'ALREADY_INSERTED',
-    ERROR = 'ERROR',
+export enum BatchInsertErrorReportType {
+  ALREADY_INSERTED = "ALREADY_INSERTED",
+  ERROR = "ERROR",
 }
 
 /**
@@ -10,25 +10,25 @@ export enum BatchInserErrorReportType {
  * - rawError
  */
 export interface BatchInsertErrorReport {
-    /**
-     * Line number where the error is
-     */
-    lineNumber: number;
+  /**
+   * Line number where the error is
+   */
+  lineNumber: number;
 
-    /**
-     * Error label that will be displayed to the front
-     */
-    errorLabel: string;
+  /**
+   * Error label that will be displayed to the front
+   */
+  errorLabel: string;
 
-    /**
-     * Raw error for debugging
-     */
-    rawError: string;
+  /**
+   * Raw error for debugging
+   */
+  rawError: string;
 
-    /**
-     * type of the error
-     */
-    type: BatchInserErrorReportType;
+  /**
+   * type of the error
+   */
+  type: BatchInsertErrorReportType;
 }
 
 /**
@@ -43,33 +43,33 @@ export interface BatchInsertErrorReport {
  * - import duration
  */
 export class BatchUserInsertReportDto {
-    /**
-     * Proccessed document count
-     */
-    processedInsertionCount: number;
+  /**
+   * Proccessed document count
+   */
+  processedInsertionCount: number;
 
-    /**
-     * successful insertion count
-     */
-    successfulInsertionCount: number;
+  /**
+   * successful insertion count
+   */
+  successfulInsertionCount: number;
 
-    /**
-     * error insertion count
-     */
-    failedInsertionCount: number;
+  /**
+   * error insertion count
+   */
+  failedInsertionCount: number;
 
-    /**
-     * already added to database count
-     */
-    alreadyAddedToDatabaseCount: number;
+  /**
+   * already added to database count
+   */
+  alreadyAddedToDatabaseCount: number;
 
-    /**
-     * Import duration in seconds
-     */
-    importDurationInSeconds: number;
+  /**
+   * Import duration in seconds
+   */
+  importDurationInSeconds: number;
 
-    /**
-     * array of error reports
-     */
-    errorReports: BatchInsertErrorReport[];
+  /**
+   * array of error reports
+   */
+  errorReports: BatchInsertErrorReport[];
 }

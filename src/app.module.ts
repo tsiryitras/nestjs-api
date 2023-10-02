@@ -12,33 +12,34 @@ import { PermissionModule } from "./permission/permission.module";
 import { RoleModule } from "./role/role.module";
 import { TokenRequestModule } from "./token-request/token-request.module";
 import { UserModule } from "./user/user.module";
+import { Mongoose } from "mongoose";
 
 @Module({
-    imports: [
-        MongooseModule.forRoot(configuration().mongo.MAIN_DATABASE_URI, {
-            useUnifiedTopology: true,
-            useNewUrlParser: true,
-        }),
-        AuthModule,
-        UserModule,
-        DbScriptModule,
-        PermissionModule,
-        RoleModule,
-        TokenRequestModule,
-    ],
-    controllers: [],
-    providers: [
-        AppService,
-        {
-            provide: CONFIGURATION_TOKEN_DI,
-            useValue: configuration(),
-        },
-        {
-            provide: APP_GUARD,
-            useClass: RequirePermissionsGuard,
-        },
-        Reflector,
-        JwtService,
-    ],
+  imports: [
+    MongooseModule.forRoot(configuration().mongo.MAIN_DATABASE_URI, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    }),
+    AuthModule,
+    UserModule,
+    DbScriptModule,
+    PermissionModule,
+    RoleModule,
+    TokenRequestModule,
+  ],
+  controllers: [],
+  providers: [
+    AppService,
+    {
+      provide: CONFIGURATION_TOKEN_DI,
+      useValue: configuration(),
+    },
+    {
+      provide: APP_GUARD,
+      useClass: RequirePermissionsGuard,
+    },
+    Reflector,
+    JwtService,
+  ],
 })
 export class AppModule {}

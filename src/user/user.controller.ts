@@ -49,6 +49,7 @@ export class UserController {
     type: User,
     isArray: false,
   })
+
   // @RequirePermissions(PermissionName.VIEW_USER)
   @Get()
   async getPaginated(
@@ -74,7 +75,7 @@ export class UserController {
     description: "The corresponding record to the id",
     type: User,
   })
-  @RequirePermissions(PermissionName.VIEW_USER)
+  // @RequirePermissions(PermissionName.VIEW_USER)
   @Get(":id")
   async findOne(@Param("id") id: string, @Res() res: FastifyReply) {
     const result = await this.userService.findOne(id);
@@ -90,7 +91,7 @@ export class UserController {
     description: "The created user record",
     type: User,
   })
-  @RequirePermissions(PermissionName.CREATE_USER)
+  // @RequirePermissions(PermissionName.CREATE_USER)
   @Post()
   async create(@Body() createUserDto: CreateUserDto, @Res() res: FastifyReply) {
     const result = await this.userService.create(createUserDto);
@@ -107,7 +108,7 @@ export class UserController {
     description: "The updated user record",
     type: User,
   })
-  @RequirePermissions(PermissionName.EDIT_USER)
+  // @RequirePermissions(PermissionName.EDIT_USER)
   @Patch(":id")
   async update(
     @Param("id") id: string,
@@ -127,7 +128,7 @@ export class UserController {
     description: "Check duplicated entry",
     type: Boolean,
   })
-  @RequirePermissions(PermissionName.EDIT_USER)
+  // @RequirePermissions(PermissionName.EDIT_USER)
   @Post("check-duplication")
   async checkDuplication(
     @Body() userToCheck: UpdateUserDto,
@@ -146,7 +147,7 @@ export class UserController {
     description: "Check if delete is successful",
     type: Boolean,
   })
-  @RequirePermissions(PermissionName.DELETE_USER)
+  // @RequirePermissions(PermissionName.DELETE_USER)
   @Delete(":id")
   async remove(@Param("id") id: string, @Res() res) {
     const result = await this.userService.remove(id);

@@ -24,7 +24,7 @@ import {
 } from "../token-request/entities/token-request.entity";
 import { TokenRequestService } from "../token-request/token-request.service";
 import {
-  BatchInserErrorReportType,
+  BatchInsertErrorReportType,
   BatchInsertErrorReport,
   BatchUserInsertReportDto,
 } from "./dto/batch-insert-user-report.dto";

@@ -47,7 +47,7 @@ const conf = {
   mongo: {
     ...mongoConf,
     // MAIN_DATABASE_URI: `mongodb+srv://${mongoConf.user}:${mongoConf.password}@${mongoConf.host}/${mongoConf.database}`,
-    MAIN_DATABASE_URI: `${mongoConf.host}${mongoConf.database}`,
+    MAIN_DATABASE_URI: `mongodb://${mongoConf.host}/${mongoConf.database}`,
     MAIN_DATABASE: MAIN_DATABASE_DI_TOKEN,
   },
   proxy: {

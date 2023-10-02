@@ -23,7 +23,7 @@ async function bootstrap() {
         AppModule,
         new FastifyAdapter({ trustProxy: true }),
         {
-            //logger: WinstonModule.createLogger(USED_WINSTON_MODULE_OPTIONS),
+            // logger: WinstonModule.createLogger(USED_WINSTON_MODULE_OPTIONS),
         }
     );
     app.enableCors();
@@ -33,6 +33,7 @@ async function bootstrap() {
     configureSwagger(app, configuration);
     app.useGlobalInterceptors(new ErrorsInterceptor());
     app.useGlobalPipes(getValidationPipe());
+    //Lancement du serveur http
     await app.listen(configuration.server.port, configuration.server.host);
 }
 
