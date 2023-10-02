@@ -79,6 +79,8 @@ export class UserService {
       .findById(createUserDto.role as string)
       .lean()
       .exec();
+    console.log(role);
+
     const createdUser: User = await this.userRepository.create({
       ...createUserDto,
       roleName: role.name, // Save role Name to facilitate the search
